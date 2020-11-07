@@ -75,7 +75,7 @@ export default function DeviceSelectionScreen({ doGetToken, onCancel, name, room
   return (
     <>
       <Typography variant="h5" className={classes.gutterBottom}>
-        Join {roomName}
+        Join Session
       </Typography>
 
       <Grid container justify="center">
