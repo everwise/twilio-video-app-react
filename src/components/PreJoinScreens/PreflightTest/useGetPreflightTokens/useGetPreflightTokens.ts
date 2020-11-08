@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import { useAppState } from '../../../../state';
 import { useState, useEffect } from 'react';
 
@@ -10,12 +9,12 @@ export default function useGetPreflightTokens() {
 
   useEffect(() => {
     if (!isFetching && !tokens) {
-      const roomName = 'preflight-network-test-' + nanoid();
+      const roomName = 'preflight-network-test-';
 
       setIsFetching(true);
 
-      const publisherIdentity = 'participant-' + nanoid();
-      const subscriberIdentity = 'participant-' + nanoid();
+      const publisherIdentity = 'participant-';
+      const subscriberIdentity = 'participant-';
 
       Promise.all([getToken(publisherIdentity, roomName), getToken(subscriberIdentity, roomName)])
         .then(tokens => {
