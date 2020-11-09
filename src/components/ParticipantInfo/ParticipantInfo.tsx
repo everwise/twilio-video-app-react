@@ -177,7 +177,7 @@ export default function ParticipantInfo({
         [classes.cursorPointer]: Boolean(onClick),
       })}
       onClick={onClick}
-      data-cy-participant={participant.identity}
+      data-cy-participant={participant.identity.split(':')[0]}
     >
       <div className={classes.infoContainer}>
         <div className={classes.networkQualityContainer}>
@@ -192,7 +192,7 @@ export default function ParticipantInfo({
           <span className={classes.identity}>
             <AudioLevelIndicator audioTrack={audioTrack} />
             <Typography variant="body1" className={classes.typeography} component="span">
-              {participant.identity}
+              {participant.identity.split(':')[0]}
               {isLocalParticipant && ' (You)'}
             </Typography>
           </span>

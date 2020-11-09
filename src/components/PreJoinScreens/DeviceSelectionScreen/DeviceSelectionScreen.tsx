@@ -81,7 +81,7 @@ export default function DeviceSelectionScreen({ doGetToken, onCancel, name, room
       <Grid container justify="center">
         <Grid item md={7} sm={12} xs={12}>
           <div className={classes.localPreviewContainer}>
-            <LocalVideoPreview identity={name} />
+            <LocalVideoPreview identity={name.split(':')[0]} />
           </div>
           <div className={classes.mobileButtonBar}>
             <Hidden mdUp>

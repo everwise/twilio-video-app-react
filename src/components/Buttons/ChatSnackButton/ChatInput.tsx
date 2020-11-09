@@ -18,7 +18,7 @@ export default function ChatInput() {
       const [localDataTrackPublication] = [...room.localParticipant.dataTracks.values()];
 
       // Construct a message to send
-      const fullMessage = `${room.localParticipant.identity} says: ${message}`;
+      const fullMessage = `${room.localParticipant.identity.split(':')[0]} says: ${message}`;
 
       // Send the message
       localDataTrackPublication.track.send(fullMessage);
