@@ -104,7 +104,7 @@ const IntroContainer = (props: IntroContainerProps) => {
   const { user } = useAppState();
 
   const icon = props.getIcon ? (
-    <div className={classes.twilioLogo}>props.getIcon()</div>
+    <div className={classes.twilioLogo}>{props.getIcon()}</div>
   ) : (<TwilioLogo className={classes.twilioLogo} />);
 
   return (
