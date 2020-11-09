@@ -96,15 +96,20 @@ const useStyles = makeStyles((theme: Theme) => ({
 interface IntroContainerProps {
   children: React.ReactNode;
   subContent?: React.ReactNode;
+  getIcon?: () => JSX.Element;
 }
 
 const IntroContainer = (props: IntroContainerProps) => {
   const classes = useStyles();
   const { user } = useAppState();
 
+  const icon = props.getIcon ? (
+    <div className={classes.twilioLogo}>props.getIcon()</div>
+  ) : (<TwilioLogo className={classes.twilioLogo} />);
+
   return (
     <div className={classes.background}>
-      <TwilioLogo className={classes.twilioLogo} />
+      {icon}
       {user && <UserMenu />}
       <div className={classes.container}>
         <div className={classes.innerContainer}>

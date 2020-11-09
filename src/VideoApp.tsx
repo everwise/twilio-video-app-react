@@ -17,10 +17,11 @@ interface VideoAppProps {
   roomName?: string;
   onCancel?: () => void;
   doGetToken?: (name: string, room: string) => Promise<string>;
+  getIcon?: () => JSX.Element;
 }
 
 
-export default function VideoApp({ doGetToken, onCancel, userName, roomName }: VideoAppProps) {
+export default function VideoApp({ getIcon, doGetToken, onCancel, userName, roomName }: VideoAppProps) {
   const { error, setError } = useAppState();
   const connectionOptions = useConnectionOptions();
 
@@ -39,7 +40,7 @@ export default function VideoApp({ doGetToken, onCancel, userName, roomName }: V
         <UnsupportedBrowserWarning>
           <VideoProvider options={connectionOptions} onError={setError}>
             <ErrorDialog dismissError={() => setError(null)} error={error} />
-            <App doGetToken={doGetToken} onCancel={onCancel} userName={userName} roomName={roomName} />
+            <App getIcon={getIcon} doGetToken={doGetToken} onCancel={onCancel} userName={userName} roomName={roomName} />
           </VideoProvider>
         </UnsupportedBrowserWarning>
       </SnackbarProvider>

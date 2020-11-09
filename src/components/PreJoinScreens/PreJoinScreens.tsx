@@ -18,9 +18,10 @@ interface PreJoinScreensProps {
   startRoomName?: string;
   onCancel?: () => void;
   doGetToken?: (name: string, room: string) => Promise<string>;
+  getIcon?: () => JSX.Element;
 }
 
-export default function PreJoinScreens({ doGetToken, onCancel, startUserName, startRoomName }: PreJoinScreensProps) {
+export default function PreJoinScreens({ getIcon, doGetToken, onCancel, startUserName, startRoomName }: PreJoinScreensProps) {
   const { user } = useAppState();
   const { getAudioAndVideoTracks } = useVideoContext();
   const [step, setStep] = useState(Steps.roomNameStep);
@@ -64,7 +65,7 @@ export default function PreJoinScreens({ doGetToken, onCancel, startUserName, st
   ) : null;
 
   return (
-    <IntroContainer subContent={step === Steps.deviceSelectionStep && SubContent}>
+    <IntroContainer getIcon={getIcon} subContent={step === Steps.deviceSelectionStep && SubContent}>
       {step === Steps.roomNameStep && (
         <RoomNameScreen
           name={name}
