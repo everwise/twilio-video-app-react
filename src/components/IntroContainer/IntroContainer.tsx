@@ -67,7 +67,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: 'absolute',
     top: 0,
     left: 0,
-    margin: '20px',
   },
   content: {
     background: 'white',
