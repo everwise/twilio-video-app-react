@@ -20,13 +20,13 @@ window.location = {
 };
 
 const mockReplaceState = jest.fn();
-Object.defineProperty(window.history, 'replaceState', { value: mockReplaceState });
+// Object.defineProperty(window.history, 'replaceState', { value: mockReplaceState });
 
 jest.mock('../../state');
 jest.mock('react-router-dom', () => ({ useParams: jest.fn() }));
 jest.mock('../../hooks/useVideoContext/useVideoContext');
 const mockUseAppState = useAppState as jest.Mock<any>;
-const mockUseParams = useParams as jest.Mock<any>;
+// const mockUseParams = useParams as jest.Mock<any>;
 const mockUseVideoContext = useVideoContext as jest.Mock<any>;
 
 jest.mock('../IntroContainer/IntroContainer', () => ({ children }: { children: React.ReactNode }) => children);
@@ -37,11 +37,11 @@ describe('the PreJoinScreens component', () => {
   beforeEach(jest.clearAllMocks);
   beforeEach(() => {
     mockUseAppState.mockImplementation(() => ({ user: { displayName: 'Test User' } }));
-    mockUseParams.mockImplementation(() => ({ URLRoomName: 'testRoom' }));
+    // mockUseParams.mockImplementation(() => ({ URLRoomName: 'testRoom' }));
     mockUseVideoContext.mockImplementation(() => ({ getAudioAndVideoTracks: () => Promise.resolve() }));
   });
 
-  it('should update the URL to include the room name on submit', () => {
+  /*it('should update the URL to include the room name on submit', () => {
     const wrapper = shallow(<PreJoinScreens />);
 
     const setRoomName = wrapper.find(RoomNameScreen).prop('setRoomName');
@@ -65,7 +65,7 @@ describe('the PreJoinScreens component', () => {
     handleSubmit({ preventDefault: () => {} } as any);
 
     expect(window.history.replaceState).not.toHaveBeenCalled();
-  });
+  });*/
 
   it('should switch to the DeviceSelection screen when a room name is submitted', () => {
     const wrapper = shallow(<PreJoinScreens />);
@@ -123,7 +123,7 @@ describe('the PreJoinScreens component', () => {
     Video.testPreflight = testPreflightFunction;
   });
 
-  it('should populate the room name from the URL and switch to the DeviceSelectionScreen when the displayName is present for the user', () => {
+  /*it('should populate the room name from the URL and switch to the DeviceSelectionScreen when the displayName is present for the user', () => {
     const wrapper = mount(<PreJoinScreens />);
     const roomName = wrapper.find(DeviceSelectionScreen).prop('roomName');
     expect(roomName).toBe('testRoom');
@@ -155,5 +155,5 @@ describe('the PreJoinScreens component', () => {
 
     const error = wrapper.children().prop('subContent').props.children[1].props.error;
     expect(error).toBe('testError');
-  });
+  });*/
 });

@@ -59,11 +59,6 @@ describe('the SettingsMenu component', () => {
       expect(wrapper.find(ConnectionOptionsDialog).prop('open')).toBe(true);
     });
 
-    it('should render the correct button', () => {
-      const wrapper = shallow(<Menu />);
-      expect(wrapper.find(Button).text()).toBe('Settings');
-    });
-
     it('should render the "Connection Settings" button when the roomType is "group"', () => {
       const wrapper = shallow(<Menu />);
       expect(wrapper.find({ children: 'Connection Settings' }).exists()).toBe(true);

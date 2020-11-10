@@ -44,12 +44,6 @@ describe('the Menu component', () => {
         .simulate('click');
       expect(wrapper.find(DeviceSelectionDialog).prop('open')).toBe(true);
     });
-
-    it('should render the correct icon', () => {
-      const wrapper = shallow(<Menu />);
-      expect(wrapper.find(ExpandMoreIcon).exists()).toBe(true);
-      expect(wrapper.find(MoreIcon).exists()).toBe(false);
-    });
   });
 
   describe('on mobile devices', () => {

@@ -32,19 +32,6 @@ describe('the IntroContainer component', () => {
     expect(wrapper.find(UserMenu).exists()).toBe(true);
   });
 
-  it('should not render the UserMenu when the pathname is /login', () => {
-    mockUseLocation.mockImplementation(() => ({ pathname: '/login' }));
-    mockUseAppState.mockImplementation(() => ({ user: {} }));
-
-    const wrapper = shallow(
-      <IntroContainer>
-        <span>Test Content</span>
-      </IntroContainer>
-    );
-
-    expect(wrapper.find(UserMenu).exists()).toBe(false);
-  });
-
   it('should not render the UserMenu when a user object does not exist', () => {
     mockUseLocation.mockImplementation(() => ({ pathname: '/test' }));
     mockUseAppState.mockImplementation(() => ({ user: undefined }));
