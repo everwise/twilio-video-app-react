@@ -12,7 +12,16 @@
     "start": "concurrently npm:server npm:dev",
     "dev": "react-scripts start",
     "server": "node server.js",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+
+    "test": "jest",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "test:ci": "jest --ci --runInBand --reporters=default --reporters=jest-junit --coverage",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --browser chrome",
+    "cypress:ci": "cross-env CYPRESS_baseUrl=http://localhost:8081 start-server-and-test server http://localhost:8081 cypress:run"
+
   },
   "dependencies": {
     "@material-ui/core": "^4.9.1",

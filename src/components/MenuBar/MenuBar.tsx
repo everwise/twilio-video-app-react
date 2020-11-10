@@ -68,7 +68,8 @@ export default function MenuBar() {
   const { isSharingScreen, toggleScreenShare } = useVideoContext();
   const roomState = useRoomState();
   const isReconnecting = roomState === 'reconnecting';
-
+  const { room } = useVideoContext(); 
+    
   return (
     <>
       {isSharingScreen && (
@@ -81,7 +82,7 @@ export default function MenuBar() {
         <Grid container justify="space-around" alignItems="center">
           <Hidden smDown>
             <Grid style={{ flex: 1 }}>
-              <Typography variant="body1"></Typography>
+              <Typography style={{ opacity: '0' }} variant="body1">{room.name}</Typography>
             </Grid>
           </Hidden>
           <Grid item>
