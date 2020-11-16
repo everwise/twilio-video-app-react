@@ -15,11 +15,19 @@ const Container = styled('div')(({ theme }) => ({
   },
 }));
 
-export default function Room() {
+interface RoomProps { 
+  messages: string;
+  setMessages: (msgs: string) => void;
+}
+
+export default function Room({
+  messages,
+  setMessages
+}: RoomProps) {
   return (
     <Container>
-      <MainParticipant />
-      <ParticipantList />
+      <MainParticipant messages={messages} setMessages={setMessages} />
+      <ParticipantList messages={messages} setMessages={setMessages} />
     </Container>
   );
 }

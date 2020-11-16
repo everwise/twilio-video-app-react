@@ -63,7 +63,15 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function MenuBar() {
+interface MenuBarProps {
+  messages: string;
+  setMessages: (msgs: string) => void;
+}
+
+export default function MenuBar({ 
+  messages,
+  setMessages
+}: MenuBarProps) {
   const classes = useStyles();
   const { isSharingScreen, toggleScreenShare } = useVideoContext();
   const roomState = useRoomState();
@@ -91,7 +99,7 @@ export default function MenuBar() {
               <ToggleVideoButton disabled={isReconnecting} />
               <Hidden smDown>{!isSharingScreen && <ToggleScreenShareButton disabled={isReconnecting} />}</Hidden>
               <Hidden smDown>
-                <ChatSnackButton />
+                <ChatSnackButton messages={messages} setMessages={setMessages} />
               </Hidden>
               <FlipCameraButton />
             </Grid>

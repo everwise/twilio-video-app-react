@@ -19,9 +19,11 @@ interface PublicationProps {
   isLocalParticipant?: boolean;
   videoOnly?: boolean;
   videoPriority?: Track.Priority | null;
+  messages: string;
+  setMessages: (msgs: string) => void;
 }
 
-export default function Publication({ publication, isLocalParticipant, videoOnly, videoPriority }: PublicationProps) {
+export default function Publication({ publication, isLocalParticipant, videoOnly, videoPriority, messages, setMessages }: PublicationProps) {
   const track = useTrack(publication);
 
   if (!track) return null;
@@ -38,7 +40,7 @@ export default function Publication({ publication, isLocalParticipant, videoOnly
     case 'audio':
       return videoOnly ? null : <AudioTrack track={track as IAudioTrack} />;
     case 'data':
-      return videoOnly ? null : <DataTrack track={track} />;
+      return videoOnly ? null : <DataTrack track={track} messages={messages} setMessages={setMessages} />;
     default:
       return null;
   }

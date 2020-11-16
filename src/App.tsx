@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { styled, Theme } from '@material-ui/core/styles';
 
 import MenuBar from './components/MenuBar/MenuBar';
@@ -42,6 +42,9 @@ export default function App({ getIcon, doGetToken, onCancel, userName, roomName 
   // will look good on mobile browsers even after the location bar opens or closes.
   const height = useHeight();
 
+  const [messages, setMessages] = useState(''); 
+
+
   return (
     <Container style={{ height }}>
       {roomState === 'disconnected' ? (
@@ -50,8 +53,8 @@ export default function App({ getIcon, doGetToken, onCancel, userName, roomName 
         <Main>
           <ReconnectingNotification />
           <MobileTopMenuBar />
-          <Room />
-          <MenuBar />
+          <Room messages={messages} setMessages={setMessages} />
+          <MenuBar messages={messages} setMessages={setMessages} />
         </Main>
       )}
     </Container>

@@ -12,6 +12,8 @@ interface ParticipantProps {
   isDominantSpeaker?: boolean;
   isLocalParticipant?: boolean;
   hideParticipant?: boolean;
+  messages: string;
+  setMessages: (msgs: string) => void;
 }
 
 export default function Participant({
@@ -22,6 +24,8 @@ export default function Participant({
   isSelected,
   isLocalParticipant,
   hideParticipant,
+  messages,
+  setMessages
 }: ParticipantProps) {
   return (
     <ParticipantInfo
@@ -36,6 +40,8 @@ export default function Participant({
         videoOnly={videoOnly}
         enableScreenShare={enableScreenShare}
         isLocalParticipant={isLocalParticipant}
+        messages={messages}
+        setMessages={setMessages}
       />
     </ParticipantInfo>
   );

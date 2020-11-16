@@ -9,6 +9,8 @@ interface ParticipantTracksProps {
   enableScreenShare?: boolean;
   videoPriority?: Track.Priority | null;
   isLocalParticipant?: boolean;
+  messages: string;
+  setMessages: (msgs: string) => void;
 }
 
 /*
@@ -25,6 +27,8 @@ export default function ParticipantTracks({
   enableScreenShare,
   videoPriority,
   isLocalParticipant,
+  messages,
+  setMessages
 }: ParticipantTracksProps) {
   const publications = usePublications(participant);
 
@@ -46,6 +50,8 @@ export default function ParticipantTracks({
           isLocalParticipant={isLocalParticipant}
           videoOnly={videoOnly}
           videoPriority={videoPriority}
+          messages={messages}
+          setMessages={setMessages}
         />
       ))}
     </>

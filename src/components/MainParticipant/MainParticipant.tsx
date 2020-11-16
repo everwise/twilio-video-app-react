@@ -6,7 +6,15 @@ import useSelectedParticipant from '../VideoProvider/useSelectedParticipant/useS
 import useScreenShareParticipant from '../../hooks/useScreenShareParticipant/useScreenShareParticipant';
 import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
 
-export default function MainParticipant() {
+interface MainParticipantProps {
+  messages: string;
+  setMessages: (msgs: string) => void;
+}
+
+export default function MainParticipant({
+  messages,
+  setMessages
+}: MainParticipantProps) {
   const mainParticipant = useMainParticipant();
   const {
     room: { localParticipant },
@@ -30,6 +38,8 @@ export default function MainParticipant() {
         enableScreenShare={mainParticipant !== localParticipant}
         videoPriority={videoPriority}
         isLocalParticipant={mainParticipant === localParticipant}
+        messages={messages}
+        setMessages={setMessages}
       />
     </MainParticipantInfo>
   );

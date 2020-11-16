@@ -35,7 +35,15 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function ParticipantList() {
+interface ParticipantListProps {
+  messages: string;
+  setMessages: (msgs: string) => void;
+}
+
+export default function ParticipantList({
+  messages,
+  setMessages
+}: ParticipantListProps) {
   const classes = useStyles();
   const {
     room: { localParticipant },
@@ -55,7 +63,12 @@ export default function ParticipantList() {
       })}
     >
       <div className={classes.scrollContainer}>
-        <Participant participant={localParticipant} isLocalParticipant={true} />
+        <Participant
+          participant={localParticipant}
+          isLocalParticipant={true}
+          messages={messages}
+          setMessages={setMessages}
+        />
         {participants.map(participant => {
           const isSelected = participant === selectedParticipant;
           const hideParticipant =
@@ -67,6 +80,8 @@ export default function ParticipantList() {
               isSelected={participant === selectedParticipant}
               onClick={() => setSelectedParticipant(participant)}
               hideParticipant={hideParticipant}
+              messages={messages}
+              setMessages={setMessages}
             />
           );
         })}
