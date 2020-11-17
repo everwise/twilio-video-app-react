@@ -19,8 +19,8 @@ interface PublicationProps {
   isLocalParticipant?: boolean;
   videoOnly?: boolean;
   videoPriority?: Track.Priority | null;
-  messages: string;
-  setMessages: (msgs: string) => void;
+  messages?: string;
+  setMessages?: (msgs: string) => void;
 }
 
 export default function Publication({ publication, isLocalParticipant, videoOnly, videoPriority, messages, setMessages }: PublicationProps) {

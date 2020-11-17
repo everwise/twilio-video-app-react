@@ -5,8 +5,8 @@ import { useSnackbar } from 'notistack';
 
 interface DataTrackProps {
   track: IDataTrack;
-  messages: string;
-  setMessages: (msgs: string) => void;
+  messages?: string;
+  setMessages?: (msgs: string) => void;
 }
 
 export default function DataTrack({ track, messages, setMessages }: DataTrackProps) {
@@ -22,8 +22,9 @@ export default function DataTrack({ track, messages, setMessages }: DataTrackPro
 
         const allMessages = messages && messages.length ? JSON.parse(messages) : [];
 
-        console.log('setMessages', allMessages.length+1);
-        setMessages(JSON.stringify([...allMessages, messageModel]));
+        if (setMessages) {
+          setMessages(JSON.stringify([...allMessages, messageModel]));
+        }
       }
     };
     track.on('message', handleMessage);

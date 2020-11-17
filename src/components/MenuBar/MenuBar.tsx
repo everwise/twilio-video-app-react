@@ -64,8 +64,8 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface MenuBarProps {
-  messages: string;
-  setMessages: (msgs: string) => void;
+  messages?: string;
+  setMessages?: (msgs: string) => void;
 }
 
 export default function MenuBar({ 

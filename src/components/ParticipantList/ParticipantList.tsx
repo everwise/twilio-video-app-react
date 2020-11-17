@@ -36,8 +36,8 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface ParticipantListProps {
-  messages: string;
-  setMessages: (msgs: string) => void;
+  messages?: string;
+  setMessages?: (msgs: string) => void;
 }
 
 export default function ParticipantList({

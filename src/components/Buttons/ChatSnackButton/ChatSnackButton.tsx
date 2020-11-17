@@ -13,8 +13,8 @@ const LightTooltip = withStyles({
 })(Tooltip);
 
 interface ChatButtonProps {
-  messages: string;
-  setMessages: (msgs: string) => void;
+  messages?: string;
+  setMessages?: (msgs: string) => void;
 }
 
 export default function ChatSnackButton({ 

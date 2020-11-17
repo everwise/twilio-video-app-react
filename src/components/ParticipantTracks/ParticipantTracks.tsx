@@ -9,8 +9,8 @@ interface ParticipantTracksProps {
   enableScreenShare?: boolean;
   videoPriority?: Track.Priority | null;
   isLocalParticipant?: boolean;
-  messages: string;
-  setMessages: (msgs: string) => void;
+  messages?: string;
+  setMessages?: (msgs: string) => void;
 }
 
 /*

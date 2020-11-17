@@ -7,8 +7,8 @@ import useScreenShareParticipant from '../../hooks/useScreenShareParticipant/use
 import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
 
 interface MainParticipantProps {
-  messages: string;
-  setMessages: (msgs: string) => void;
+  messages?: string;
+  setMessages?: (msgs: string) => void;
 }
 
 export default function MainParticipant({

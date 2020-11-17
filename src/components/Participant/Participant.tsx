@@ -12,8 +12,8 @@ interface ParticipantProps {
   isDominantSpeaker?: boolean;
   isLocalParticipant?: boolean;
   hideParticipant?: boolean;
-  messages: string;
-  setMessages: (msgs: string) => void;
+  messages?: string;
+  setMessages?: (msgs: string) => void;
 }
 
 export default function Participant({

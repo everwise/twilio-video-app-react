@@ -16,8 +16,8 @@ const Container = styled('div')(({ theme }) => ({
 }));
 
 interface RoomProps { 
-  messages: string;
-  setMessages: (msgs: string) => void;
+  messages?: string;
+  setMessages?: (msgs: string) => void;
 }
 
 export default function Room({

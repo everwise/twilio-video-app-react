@@ -24,8 +24,8 @@ interface MessagesDisplayProps {
 }
 
 interface ChatInputProps {
-  messages: string;
-  setMessages: (msgs: string) => void;
+  messages?: string;
+  setMessages?: (msgs: string) => void;
 }
 
 export default function ChatInput({messages, setMessages}: ChatInputProps) {
@@ -54,7 +54,9 @@ export default function ChatInput({messages, setMessages}: ChatInputProps) {
       localDataTrackPublication.track.send(JSON.stringify(messageModel));
 
       // add to local cache of messages     
-      setMessages(JSON.stringify([...allMessages, messageModel]));
+      if (setMessages) {
+        setMessages(JSON.stringify([...allMessages, messageModel]));
+      }
 
       //Reset the text field
       setMessage('');
